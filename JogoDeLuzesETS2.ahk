@@ -1,13 +1,17 @@
 ﻿; ________________________________________________________ ATENÇÃO ________________________________________________________
 ; 
-; - Todas as sequências já prontas foram feitas para serem usadas com o farol já ligado
-; 
+; - Todas as sequências prontas foram feitas para serem usadas com o farol já ligado
+;   
+; - Símbolos das teclas: 
+;   + --> Shift
+;   ^ --> Ctrl
+;   ! --> Alt
+;   # --> LWin + RWin
 ; ________________________________________________________ ATENÇÃO ________________________________________________________
 
 
 #SingleInstance Force ; Não permite que seja executada mais de uma instância ao mesmo tempo
 
-;   + --> Shift
 
 
 ; -----------------------SETAS
@@ -97,16 +101,45 @@ desligaLigaFarol(){
 ; Farol-----------------------
 
 
-; -----------------------Sequência de comandos
-; Aqui as ações serão executadas na ordem que você colocar
-; Na função abaixo: '+j'
-; '+' --> Representa o 'Shift' 
-; 'j' --> Letra j
-$+j::{
+
+; -----------------------Sequencias Prontas
+; Dentro das funções, as ações serão executadas na ordem que você colocar
+sequencia1(){
+    desligaFarol()
+
+    piscaFarolAlto()
+    piscaFarolAlto()
+    
+    setaDireita()
+    setaEsquerda()
+
+    piscaFarolAlto()
+    piscaFarolAlto()
+
+    ligaFarol()
+}
+
+sequencia2(){
     desligaFarol()
     alternaSetas(3, 100)
     piscaAlerta()
     piscaFarolAlto()
     ligaFarol()
+}
+; Sequencias Prontas-----------------------
+
+
+
+; -----------------------Sequência de comandos
+; Aqui você escolhe a combinação de teclas para acionar cada jogo de luzes
+; No exemplo: '+j::{      }'
+; '+' --> Representa o 'Shift' 
+; 'j' --> Letra j
++1::{ ; Shift + 1
+    sequencia1()
+}
+
++2::{ ; Shift + 2
+    sequencia2()
 }
 ; Sequência de comandos-----------------------
