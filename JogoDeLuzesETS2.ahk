@@ -105,32 +105,38 @@ desligaLigaFarol(){
 ; -----------------------Sequencias Prontas
 ; Dentro das funções, as ações serão executadas na ordem que você colocar
 sequencia1(){
-    desligaFarol()
-
-    piscaFarolAlto()
-    piscaFarolAlto()
-    
-    setaDireita()
-    setaEsquerda()
-
-    piscaFarolAlto()
-    piscaFarolAlto()
-
-    ligaFarol()
+    if WinActive("ahk_exe eurotrucks2.exe"){ ; verifica se o jogo está aberto, não executa fora do jogo
+        desligaFarol()
+        piscaFarolAlto()
+        piscaFarolAlto()
+        setaDireita()
+        setaEsquerda()
+        piscaFarolAlto()
+        piscaFarolAlto()
+        ligaFarol()
+    }
 }
 
 sequencia2(){
-    desligaFarol()
-    alternaSetas(3, 100)
-    piscaAlerta()
-    piscaFarolAlto()
-    ligaFarol()
+    if WinActive("ahk_exe eurotrucks2.exe"){ ; verifica se o jogo está aberto, não executa fora do jogo
+        desligaFarol()
+        alternaSetas(3, 100)
+        piscaAlerta()
+        piscaFarolAlto()
+        ligaFarol()
+    }
+}
+
+sequencia3(){
+    if WinActive("ahk_exe eurotrucks2.exe"){ ; verifica se o jogo está aberto, não executa fora do jogo
+        ; sua sequência aqui
+    }
 }
 ; Sequencias Prontas-----------------------
 
 
 
-; -----------------------Sequência de comandos
+; -----------------------Combinação de teclas
 ; Aqui você escolhe a combinação de teclas para acionar cada jogo de luzes
 ; No exemplo: '+j::{      }'
 ; '+' --> Representa o 'Shift' 
@@ -142,4 +148,8 @@ sequencia2(){
 +2::{ ; Shift + 2
     sequencia2()
 }
-; Sequência de comandos-----------------------
+
++3::{ ; Shift + 3
+    sequencia3()
+}
+; Combinação de teclas-----------------------
